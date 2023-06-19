@@ -80,6 +80,95 @@ $("#5pm-save").click(function(){
 
 
 
+//load local storage for daily planner
+function load(){
+  planner=JSON.parse(local.getItem("planner") ||"[]");
+  $("#9am-text").val(planner[0]);
+  $("#10am-text").val(planner[1]);
+  $("#11am-text").val(planner[2]);
+  $("#12pm-text").val(planner[3]);
+  $("#1pm-text").val(planner[4]);
+  $("#2pm-text").val(planner[5]);
+  $("#3pm-text").val(planner[6]);
+  $("#4pm-text").val(planner[7]);
+  $("#5pm-text").val(planner[8]);
+}
+
+//save all
+function save(){
+  local.setItem("planner",Json.stringify(planner));
+}
+
+//past, present and future timeslot background colours
+function colours()
+  let time1="9:00am";
+  let check1=compareTime(time1);
+
+  let time2="10:00am";
+  let check2=compareTime(time2);
+
+  let time3="11:00am";
+  let check3=compareTime(time3);
+
+  let time4="12:00pm";
+  let check4=compareTime(time4);
+
+  let time5="1:00pm";
+  let check5=compareTime(time5);
+
+  let time6="2:00pm";
+  let check6=compareTime(time6);
+
+  let time7="3:00pm";
+  let check7=compareTime(time7);
+
+  let time8="4:00pm";
+  let check8=compareTime(time8);
+
+  let time9="5:00pm";
+  let check9=compareTime(time9);
+
+  let time10="6:00pm";
+  let check10=compareTime(time10);
+
+  //functionality for determining bg colours
+
+  if  (check1== false && check2==false){
+    $("#9am-text").addClass("bg-danger");
+  } else if (check1==false && check2==true){
+    $("9am-text").addClass("bg-warning");
+  } else {
+    $("9am-text").addClass("bg-success");
+  }
+
+  if  (check2== false && check3==false){
+    $("#10am-text").addClass("bg-danger");
+  } else if (check2==false && check3==true){
+    $("10am-text").addClass("bg-warning");
+  } else {
+    $("10am-text").addClass("bg-success");
+  }
+
+  if  (check3== false && check4==false){
+    $("#11am-text").addClass("bg-danger");
+  } else if (check3==false && check4==true){
+    $("11am-text").addClass("bg-warning");
+  } else {
+    $("11am-text").addClass("bg-success");
+  }
+
+  if  (check4== false && check5==false){
+    $("#12pm-text").addClass("bg-danger");
+  } else if (check1==false && check2==true){
+    $("9am-text").addClass("bg-warning");
+  } else {
+    $("9am-text").addClass("bg-success");
+  }
+
+
+
+
+
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
