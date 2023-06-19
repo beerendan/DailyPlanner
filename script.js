@@ -1,6 +1,86 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+let timeNow="";
+let local= window.localStorage;
+let planner= ["","","","","","","","",""];
+
+console.log("start setDate");
+setDate();
+console.log("setDate done");
+
+console.log("start loader");
+loader();
+console.log()("loader done");
+
+console.log("start rowStatus");
+rowStatus();
+console.log("rowStatus done");
+
+//buttons
+$("#9am-save").click(function(){
+  let text=$("#9am-text").val();
+  planner[0]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#10am-save").click(function(){
+  let text=$("#10am-text").val();
+  planner[1]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#11am-save").click(function(){
+  let text=$("#11am-text").val();
+  planner[2]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#12pm-save").click(function(){
+  let text=$("#12pm-text").val();
+  planner[3]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#1pm-save").click(function(){
+  let text=$("#1pm-text").val();
+  planner[4]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#2pm-save").click(function(){
+  let text=$("#2pm-text").val();
+  planner[5]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#3pm-save").click(function(){
+  let text=$("#3pm-text").val();
+  planner[6]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#4pm-save").click(function(){
+  let text=$("#4pm-text").val();
+  planner[7]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+$("#5pm-save").click(function(){
+  let text=$("#5pm-text").val();
+  planner[8]=text;
+  save();
+  console.log("Contents saved.");
+})
+
+
+
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
