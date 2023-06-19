@@ -25,7 +25,7 @@
   <body>
     <header class="p-5 mb-4 border-5 border-bottom border-dark text-center">
       <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p class="lead text-muted">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
    
@@ -35,9 +35,9 @@
           <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
             <label id="9am-time">9:00am</label>
           </div>
-          <div id="9am-text" class="col-8 border">
+          <div id="9am-text" class="col-md-8 py-3">
             <div class="input">
-              <textarea id="9am-textArea" class="form-control"></textarea>
+              <textarea id="9am-textArea" class="form-control description"></textarea>
             </div> 
           </div>
           <div class="col-2">
@@ -52,7 +52,7 @@
       <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
         <label id="10am-time">10:00am</label>
       </div>
-      <div id="10am-text" class="col-8 border">
+      <div id="10am-text" class="col-md-8 py-3">
         <div class="input">
           <textarea id="10am-textArea" class="form-control">
           </textarea>
@@ -70,7 +70,7 @@
         <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
           <label id="11am-time">11:00am</label>
        </div>
-        <div id="11am-text" class="col-8 border">
+        <div id="11am-text" class="col-md-8 py-3">
          <div class="input">
            <textarea id="11am-textArea" class="form-control"></textarea>
           </div> 
@@ -87,7 +87,7 @@
   <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
     <label id="12pm-time">12:00pm</label>
   </div>
-  <div id="12pm-text" class="col-8 border">
+  <div id="12pm-text" class="col-md-8 py-3">
     <div class="input">
       <textarea id="12pm-textArea" class="form-control"></textarea>
    
@@ -105,7 +105,7 @@
   <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
     <label id="1pm-time">1:00pm</label>
   </div>
-  <div id="1pm-text" class="col-8 border">
+  <div id="1pm-text" class="col-md-8 py-3">
     <div class="input">
       <textarea id="1pm-textArea" class="form-control">
       </textarea>
@@ -123,7 +123,7 @@
   <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
     <label id="2pm-time">2:00pm</label>
   </div>
-  <div id="2pm-text" class="col-8 border">
+  <div id="2pm-text" class="col-md-8 py-3">
     <div class="input">
       <textarea id="2pm-textArea" class="form-control"></textarea>
     </div> 
@@ -140,7 +140,7 @@
   <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
     <label id="3pm-time">3:00pm</label>
   </div>
-  <div id="3pm-text" class="col-8 border">
+  <div id="3pm-text" class="col-md-8 py-3">
     <div class="input">
       <textarea id="3pm-textArea" class="form-control"></textarea>
     </div> 
@@ -157,7 +157,7 @@
   <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
     <label id="4pm-time">4:00pm</label>
   </div>
-  <div id="4pm-text" class="col-8 border">
+  <div id="4pm-text" class="col-md-8 py-3">
     <div class="input">
       <textarea id="1pm-textArea" class="form-control"></textarea>
     </div> 
@@ -174,7 +174,7 @@
   <div class="col-2 border border-dark border-left-0 d-flex align-items-center justify-content-center">
     <label id="5pm-time">5:00pm</label>
   </div>
-  <div id="5pm-text" class="col-8 border">
+  <div id="5pm-text" class="col-md-8 py-3">
     <div class="input">
       <textarea id="5pm-textArea" class="form-control">
       </textarea>
@@ -192,8 +192,9 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
 </html>

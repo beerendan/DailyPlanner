@@ -1,3 +1,4 @@
+
 let timeNow="";
 let local= window.localStorage;
 let planner= ["","","","","","","","",""];
@@ -208,8 +209,8 @@ function rowStatus(){
 }
   //comparing schedule blocks with actual time
 function compareTime(blockTime) {
-  let rowTime= moment(blockTime, "h:mma");
-  let currentTime= moment(timeNow, "h:mma");
+  let rowTime= dayjs(blockTime, "h:mma");
+  let currentTime= dayjs(timeNow, "h:mma");
   let bool=currentTime.isBefore(rowTime);
 
   if(bool==false){
@@ -221,9 +222,7 @@ function compareTime(blockTime) {
 
 //Display for current date/time function
 function setDate(){
-  let getDate= moment().toDate();
-  let dateNow= moment(getDate).format("dddd, MMMM do YYYY");
-  timeNow = moment(getDate).format("h:mma");
+    let today= dayjs().format('dddd, MMMM DD, YYYY');
 
-  $("#currentDay").html("<p>"+dateNow+ "<p>");
-}
+    $("#currentDay").html("<p>"+today+ "<p>");
+  }
