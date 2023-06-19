@@ -8,7 +8,7 @@ console.log("setDate done");
 
 console.log("start loader");
 loader();
-console.log()("loader done");
+console.log("loader done");
 
 console.log("start rowStatus");
 rowStatus();
@@ -81,7 +81,7 @@ $("#5pm-save").click(function(){
 
 
 //load local storage for daily planner
-function load(){
+function loader(){
   planner=JSON.parse(local.getItem("planner") ||"[]");
   $("#9am-text").val(planner[0]);
   $("#10am-text").val(planner[1]);
@@ -100,7 +100,7 @@ function save(){
 }
 
 //past, present and future timeslot background colours
-function colours()
+function colours(){
   let time1="9:00am";
   let check1=compareTime(time1);
 
@@ -136,57 +136,93 @@ function colours()
   if  (check1== false && check2==false){
     $("#9am-text").addClass("bg-danger");
   } else if (check1==false && check2==true){
-    $("9am-text").addClass("bg-warning");
+    $("#9am-text").addClass("bg-warning");
   } else {
-    $("9am-text").addClass("bg-success");
+    $("#9am-text").addClass("bg-success");
   }
 
   if  (check2== false && check3==false){
     $("#10am-text").addClass("bg-danger");
   } else if (check2==false && check3==true){
-    $("10am-text").addClass("bg-warning");
+    $("#10am-text").addClass("bg-warning");
   } else {
-    $("10am-text").addClass("bg-success");
+    $("#10am-text").addClass("bg-success");
   }
 
   if  (check3== false && check4==false){
     $("#11am-text").addClass("bg-danger");
   } else if (check3==false && check4==true){
-    $("11am-text").addClass("bg-warning");
+    $("#11am-text").addClass("bg-warning");
   } else {
-    $("11am-text").addClass("bg-success");
+    $("#11am-text").addClass("bg-success");
   }
 
   if  (check4== false && check5==false){
     $("#12pm-text").addClass("bg-danger");
-  } else if (check1==false && check2==true){
-    $("9am-text").addClass("bg-warning");
+  } else if (check4==false && check5==true){
+    $("#12pm-text").addClass("bg-warning");
   } else {
-    $("9am-text").addClass("bg-success");
+    $("#12pm-text").addClass("bg-success");
   }
 
+  if  (check5== false && check6==false){
+    $("#1pm-text").addClass("bg-danger");
+  } else if (check5==false && check6==true){
+    $("#1pm-text").addClass("bg-warning");
+  } else {
+    $("#1pm-text").addClass("bg-success");
+  }
 
+  if  (check6== false && check7==false){
+    $("#2pm-text").addClass("bg-danger");
+  } else if (check6==false && check7==true){
+    $("#2pm-text").addClass("bg-warning");
+  } else {
+    $("#2pm-text").addClass("bg-success");
+  }
 
+  if  (check7== false && check8==false){
+    $("#3pm-text").addClass("bg-danger");
+  } else if (check7==false && check8==true){
+    $("#3pm-text").addClass("bg-warning");
+  } else {
+    $("#3pm-text").addClass("bg-success");
+  }
 
+  if  (check8== false && check9==false){
+    $("#4pm-text").addClass("bg-danger");
+  } else if (check8==false && check9==true){
+    $("#4pm-text").addClass("bg-warning");
+  } else {
+    $("#4pm-text").addClass("bg-success");
+  }
 
+  if  (check9== false && check10==false){
+    $("#5pm-text").addClass("bg-danger");
+  } else if (check9==false && check10==true){
+    $("#5pm-text").addClass("bg-warning");
+  } else {
+    $("#5pm-text").addClass("bg-success");
+  }
+}
+  //comparing schedule blocks with actual time
+function compareTime(blockTime) {
+  let rowTime= moment(blockTime, "h:mma");
+  let currentTime= moment(timeNow, "h:mma");
+  let bool=currentTime.isBefore(rowTime);
 
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
-});
+  if(bool==false){
+    return false;
+  } else if(bool==true){
+    return true;
+  }
+}
+
+//Display for current date/time function
+function setDate(){
+  let getDate= moment().toDate();
+  let dateNow= moment(getDate).format("dddd, MMMM do YYYY");
+  timeNow = moment(getDate).format("h:mma");
+
+  $("#currentDay").html("<p>"+dateNow+ "<p>");
+}
